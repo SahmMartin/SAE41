@@ -12,12 +12,10 @@ mysql = MySQL(app)
 
 
 @app.route("/", methods = ["POST", "GET"])
-def forms():
-	return forms_template('forms.html')
-
+def connection():
 	if request.method== "POST":
-		username = request.form["name"]
-		password = request.form["pwd"]
+		username = request.form["username"]
+		password = request.form["password"]
 		cursor = mysql.connection.cursor()
 		query = "SELECT username, password FROM users WHERE username = %s AND pwd = %s"
 		cursor.execute(query, (name, pwd))
@@ -32,16 +30,12 @@ def forms():
 	return render_template("forms.html")
 
 
-@app.route("/liste_r")
+@app.route("/liste_r.html", methods = ["POST", "GET"])
 def liste():
 	return render_template('liste_r.html')
 
 
 
 
-
-@app.route("/ajout_r")
-def ajout():
-	return render_template('ajout_r.html')
 
 
