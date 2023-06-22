@@ -1,0 +1,61 @@
+version: '3'
+services:
+  db:
+    image: mysql:5.7
+    restart: unless-stopped
+    container_name: bdd
+    environment:
+      MYSQL_DATABASE: 'sae41'
+      MYSQL_ROOT_PASSWORD: 'pwd'
+    ports:
+      - '3306:3306'
+    volumes:
+      - bdd:/var/lib/mysql
+      - ./app/sae41.sql:/docker-entrypoint-initdb.d/schema.sql:ro
+    networks:
+      my_network:
+        ipv4_address: 10.0.0.1
+
+
+
+  fastapi:
+    build:
+      context: .
+      dockerfile: Dockerfile.fastapi
+    container_name: WEB
+    environment:
+      PORT: 8000
+    ports:
+      - '8000:8000'
+    restart: unless-stopped
+    volumes:
+      - web:/var/lib/fastapi
+    networks:
+      my_network:
+        ipv4_address: 10.0.0.2
+
+    
+
+  deb:
+    build:
+      context: .
+      dockerfile: Dockerfile.deb
+    restart: unless-stopped
+    container_name: deb
+    networks:
+      my_network:
+        ipv4_address: 10.0.0.3
+
+    
+
+# Names our volume
+volumes:
+  bdd:
+  web:
+
+networks:
+  my_network:
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.0.0.0/8

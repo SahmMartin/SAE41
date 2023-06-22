@@ -15,13 +15,11 @@ from fastapi_login.exceptions import InvalidCredentialsException
 #Ajout du middleware à FastAPI
 app = FastAPI()
 
-with open("/home/bob/SAE41/v2/SAE41/1.txt", "r") as file:
-    ip = file.readline().strip()
 #Connexion à la BDD
 
 bdd = mysql.connector.connect(
 
-        host="ip",
+        host="10.0.0.1",
         user="user_admin",
         password="pwd",
         database="sae41"
