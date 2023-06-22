@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulaire de prise de rendez-vous</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+</head>
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    place-items: center;
+    background: -webkit-linear-gradient(left, #a445b2, #fa4299);
+}
+
+.wrapper {
+    overflow: hidden;
+    max-width: 390px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+}
+
+.title-text {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    color: #000;
+}
+
+.form-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.form-inner {
+    display: flex;
+    width: 100%;
+}
+
+form {
+    width: 100%;
+}
+
+.field {
+    margin-top: 20px;
+}
+
+.field input {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    padding-left: 15px;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    border-bottom-width: 2px;
+    font-size: 17px;
+    transition: all 0.3s ease;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid lightgrey;
+}
+
+td button {
+    margin-right: 5px;
+}
+
+.field input:focus {
+    border-color: #ff6b6b;
+    border-bottom-width: 2.5px;
+}
+
+input[type="submit"] {
+    background: linear-gradient(45deg, #a445b2, #fa4299);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    transform: scale(0.99);
+    background: linear-gradient(-45deg, #a445b2, #fa4299);
+}
+    </style>
+    <div class="wrapper">
+        <div class="title-text">
+            <h2 class="title">Formulaire de prise de rendez-vous</h2>
+        </div>
+        <div class="form-container">
+            <div class="form-inner">
+                <form>
+                    <div class="field">
+                        <input type="text" name="name" placeholder="Votre nom" required>
+                    </div>
+                    <div class="field">
+                        <table>
+                            <tr>
+                                <th>Créneau et disponibilité</th>
+                            </tr>
+                            <tr>
+                                <td>Créneau 1</td>
+                                <td><button type="button">Oui</button>/<button type="button">Non</button></td>
+                            </tr>
+                            <tr>
+                                <td>Créneau 2</td>
+                                <td><button type="button">Oui</button>/<button type="button">Non</button></td>
+                            </tr>
+                            <tr>
+                                <td>etc..</td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="field">
+                        <input type="submit" value="Valider" formaction="afaire.html">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
