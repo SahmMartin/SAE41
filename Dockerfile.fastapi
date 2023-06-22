@@ -8,7 +8,7 @@ RUN apt install python3-pip -y
 
 RUN pip install uvicorn fastapi jinja2 mysql-connector-python fastapi-responses python-multipart httpx fastapi-login
 
-RUN pip install --upgrade fastapi uvicorn httpx
+RUN pip install --upgrade fastapi uvicorn httpx 
 
 COPY ./app/ ./
 

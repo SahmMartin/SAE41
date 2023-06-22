@@ -33,7 +33,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `users`
+-- Insertion `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `password`) VALUES
@@ -56,7 +56,7 @@ CREATE TABLE `rdv` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `rdv`
+-- Insertion de données dans la table `rdv`
 --
 
 INSERT INTO `rdv` (`id`, `user_id`, `name_rdv`, `date_rdv`) VALUES

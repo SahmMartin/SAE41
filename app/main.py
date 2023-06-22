@@ -19,11 +19,13 @@ app = FastAPI()
 
 bdd = mysql.connector.connect(
 
-        host="10.0.0.1",
-        user="user_admin",
+        host="10.0.0.4",
+        user="root",
         password="pwd",
         database="sae41"
     )
+
+
 sql_cursor = mysql.cursor()
 
 

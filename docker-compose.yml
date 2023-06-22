@@ -14,7 +14,7 @@ services:
       - ./app/sae41.sql:/docker-entrypoint-initdb.d/schema.sql:ro
     networks:
       my_network:
-        ipv4_address: 10.0.0.1
+        ipv4_address: 10.0.0.4
 
 
 
@@ -32,7 +32,7 @@ services:
       - web:/var/lib/fastapi
     networks:
       my_network:
-        ipv4_address: 10.0.0.2
+        ipv4_address: 10.0.0.5
 
     
 
