@@ -5,3 +5,5 @@ docker container prune
 docker image prune -a
 
 docker volume prune
+
+docker network prune
