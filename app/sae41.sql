@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 --
--- Structure de la table `users`
+-- Table `users`
 --
 
 CREATE TABLE `users` (
@@ -45,7 +45,7 @@ INSERT INTO `users` (`id`, `username`, `password`) VALUES
 
 -- --------------------------------------------------------
 --
--- Structure de la table `rdv`
+-- Table `rdv`
 --
 
 CREATE TABLE `rdv` (

@@ -26,7 +26,7 @@ bdd = mysql.connector.connect(
     )
 
 
-sql_cursor = mysql.cursor()
+sql_cursor = bdd.cursor()
 
 
 
@@ -42,12 +42,12 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 @app.get("/", response_class=HTMLResponse)
 async def accueil(request:Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    return templates.TemplateResponse("login.html", {"request": request})
 
 
 @app.get("/new_account", response_class=HTMLResponse)
 async def create_account(request:Request):
-    return templates.TemplateResponse("new_account.html", {"request": request})
+    return templates.TemplateResponse("new.html", {"request": request})
 
 
 @app.post("/new_account")
@@ -62,7 +62,7 @@ async def cr_account_post(username: Annotated[str, Form()], password: Annotated[
 
 @app.get("/login")
 async def login(request: Request):
-    return templates.TemplateResponse("login.html", {"request": request})
+    return templates.TemplateResponse("visurdv.html", {"request": request})
 
 
 @app.post("/login")
@@ -93,6 +93,7 @@ def get_username(request: Request):
 async def rdv(request: Request, usernamelog: str = Depends(get_username)):
     username = request.cookies.get("username")
     print(username)
+    return templates.TemplateResponse("visurdv.html", {"request": request})
 
     # Partie tableau de RDV
     table_rdv = {}
@@ -120,7 +121,7 @@ async def rdv(request: Request, usernamelog: str = Depends(get_username)):
         table_rdv[item_id] = item
         print(item_id)
 
-    return templates.TemplateResponse("page_user.html", {"request": request, "username": username, "table_rdv": table_rdv})
+    return templates.TemplateResponse("visurdv.html", {"request": request, "username": username, "table_rdv": table_rdv})
 
 
 
@@ -145,20 +146,3 @@ async def rdvpost(objet: Annotated[str, Form()], date: Annotated[str, Form()], u
 
     return RedirectResponse(url="/rdv", status_code=303)
 
-
-@app.post("/logout")
-async def logout(response: Response):
-    response = RedirectResponse(url="/login", status_code=303)
-    response.delete_cookie("username")
-    return response
-
-
-@app.post("/delete")
-async def delete_rdv(response : Response, item_id: int = Form(...)):
-    sql = "DELETE FROM rdv WHERE id = %s"
-    val = (item_id,)
-    sql_cursor.execute(sql, val)
-    mydb.commit()
-
-    response = RedirectResponse(url="/rdv", status_code=303)
-    return response

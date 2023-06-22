@@ -1,4 +1,15 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Identification</title>
+      <link rel="stylesheet" href="style.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+   <body>
+      <style>
+         @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 *{
   margin: 0;
   padding: 0;
@@ -180,3 +191,36 @@ form .btn input[type="submit"]{
   font-weight: 500;
   cursor: pointer;
 }
+      </style>
+      <div class="wrapper">
+         <div class="title-text">
+            <div class="title signup">
+               Inscription
+            </div>
+         </div>
+         <div class="form-container">
+               <input type="radio" name="slide" id="login" checked>
+               <input type="radio" name="slide" id="signup">
+            </div>
+            <div class="form-inner">
+               <form action="#" class="signup">
+                  <div class="field">
+                     <input type="text" placeholder="Identifiant" required>
+                  </div>
+                  <div class="field">
+                     <input type="password" placeholder="Mot de passe" required>
+                  </div>
+                  <div class="field">
+                     <input type="password" placeholder="Confirmer le mot de passe" required>
+                  </div>
+                  <div class="field btn">
+                     <div class="btn-layer"></div>
+                     <input type="submit" value="S'inscrire">
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+      
+   </body>
+</html>
